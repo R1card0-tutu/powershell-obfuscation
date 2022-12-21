@@ -56,7 +56,7 @@ This tool implements AMSI-bypass obfuscation, ETW-block obfuscation and powershe
 
 ```./powershell-obfuscation.ps1 -c "whoami"``` 来混淆命令 obfuscates command
 
-```./powershell-obfuscation.ps1 -f "filename"``` 来混淆指定的文件 obfuscates specific file
+```./powershell-obfuscation.ps1 -f "filename"``` 来混淆指定的文件（绝对路径） obfuscates specific file (absolute path)
 
 结果会输出在当前目录下的bypass.ps1中
 
