@@ -32,7 +32,7 @@ AMSI-bypass obfuscation + ETW-block obfuscation + powershell command obfuscation
 
 同时对AMSI绕过与ETW block与powershell命令进行了混淆。
 
-这里仅仅实现了一个简单的混淆器demo，可以自由发挥，后续要是有时间的话我会继续完善。
+这里仅仅实现了一个简单的混淆器demo，可以根据上述的思路自由发挥，后续要是有时间的话我会继续完善。
 
 实验了一下，用qax的反混淆工具与Unit42团队的反混淆工具都是解不开的。
 
